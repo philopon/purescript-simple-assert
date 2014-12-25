@@ -1,0 +1,21 @@
+{
+  "name": "purescript-simple-assert",
+  "version": "0.1.0",
+  "description": "purescript simple assertion library",
+  "keywords": [
+    "purescript"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/philopon/purescript-simple-assert",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purescript-assertion-error": "~0.1.1",
+    "purescript-strings": "~0.4.2"
+  }
+}
