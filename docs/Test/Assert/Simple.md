@@ -19,6 +19,8 @@
 
     assertFailure :: forall e. String -> Assertion e
 
+    assertIn :: forall e a. (Eq a, Show a) => [a] -> a -> Assertion e
+
     assertString :: forall e. String -> Assertion e
 
     assertSuccess :: forall e. Assertion e
