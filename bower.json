@@ -1,6 +1,6 @@
 {
   "name": "purescript-simple-assert",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "purescript simple assertion library",
   "keywords": [
     "purescript"
@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "purescript-assertion-error": "~0.1.1",
-    "purescript-strings": "~0.4.2"
+    "purescript-strings": "~0.4.2",
+    "purescript-foldable-traversable": "~0.2.1"
   }
 }

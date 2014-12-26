@@ -3,6 +3,7 @@ module Test.Assert.Simple
   , assertSuccess, assertFailure
   , assertBool
   , assertEqual
+  , assertIn
   , assertString
   , (@=?), (@?=)
   , assertThrows
@@ -14,6 +15,7 @@ module Test.Assert.Simple
   import Data.Maybe
   import Data.String
   import Data.Function
+  import Data.Foldable
 
   type Assertion e = Eff (err :: Exception | e) Unit
 
@@ -35,11 +37,18 @@ module Test.Assert.Simple
 
   assertEqual :: forall e a. (Eq a, Show a) => a -> a -> Assertion e
   assertEqual expected actual =
-  unless (actual == expected) (assertFailure msg)
-   where msg = "expected: " ++ show expected ++ "\n but got: " ++ show actual
+    unless (actual == expected) (assertFailure msg)
+      where msg = "expected: " ++ show expected ++
+                  " but got: " ++ show actual
 
   assertString :: forall e. String -> Assertion e
   assertString s = unless (null s) (assertFailure s)
+
+  assertIn :: forall e a. (Eq a, Show a) => [a] -> a -> Assertion e
+  assertIn expecteds actual =
+    unless (any ((==) actual) expecteds) (assertFailure msg)
+      where msg = "expected: " ++ joinWith " | " (show <$> expecteds) ++
+                  " but got: " ++ show actual
 
   (@=?) :: forall e a. (Eq a, Show a) => a -> a -> Assertion e
   (@=?) expected actual = assertEqual expected actual
