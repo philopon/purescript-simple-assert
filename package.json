@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "gulp"
+  },
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-foreach": "^0.1.0",
