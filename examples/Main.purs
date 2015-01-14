@@ -1,11 +1,12 @@
 module Main where
 
 import Debug.Trace
-import Test.Mocha
+import Test.PSpec
+import Test.PSpec.Mocha
 import Test.Assert.Simple
 import Control.Monad.Eff.Exception
 
-main = do
+main = runMocha $ do
   describe "@=?" $ do
     it "success" $ 2 @=? 1 + 1
     it "failure" $ 3 @=? 1 + 1
